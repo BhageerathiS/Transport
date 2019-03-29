@@ -1,0 +1,40 @@
+<h1>Listing Drivers</h1>
+
+<%= link_to 'New Driver', new_driver_path %>
+
+<% unless @drivers.blank? %>
+  <div class="table-responsive">
+    <table class="table" cellspacing="10">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Dob</th>
+          <th>Licence Class</th>
+          <th>Issue Date</th>
+          <th>Licence Number</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @drivers.each do |driver| %>
+          <tr>
+            <td><%= driver.name %></td>
+            <td><%= driver.dob %></td>
+            <td><%= driver.licence_class %></td>
+            <td><%= driver.issue_date %></td>
+            <td><%= driver.licence_number %></td>
+            <td><%= link_to 'Show', driver %></td>
+            <td><%= link_to 'Edit', edit_driver_path(driver) %></td>
+            <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p>No records present </p>
+<% end %>
+  
+
+<br>

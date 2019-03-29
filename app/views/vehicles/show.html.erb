@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @vehicle.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @vehicle.model %>
+</p>
+
+<p>
+  <strong>Variant:</strong>
+  <%= @vehicle.variant %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @vehicle.year %>
+</p>
+
+<p>
+  <strong>Veh class:</strong>
+  <%= @vehicle.veh_class %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @vehicle.capacity %>
+</p>
+
+<p>
+  <strong>Vahicle number:</strong>
+  <%= @vehicle.vahicle_number %>
+</p>
+
+<p>
+  <strong>Imageurl:</strong>
+  <%= @vehicle.imageUrl %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @vehicle.driver_id %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>
