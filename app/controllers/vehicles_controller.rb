@@ -4,6 +4,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   def index
     @vehicles = Vehicle.all
+    @drivers = Driver.all.group_by{|x| x.licence_class}
   end
 
   # GET /vehicles/1

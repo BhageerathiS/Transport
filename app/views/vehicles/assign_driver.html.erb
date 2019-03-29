@@ -17,9 +17,9 @@
 
     <tbody>
       <% @vehicles.each do |vehicle| %>
-        <tr>
-          <% d_count = vehicle.drivers.count %>
-          <% if d_count != 0 %>
+        <% d_count = vehicle.drivers.count %>
+        <% if d_count != 0 %>
+          <tr>
             <td><%= vehicle.make %></td>
             <td><%= vehicle.model %></td>
             <td><%= vehicle.variant %></td>
@@ -28,8 +28,8 @@
             <td><%= vehicle.capacity %></td>
             <td><%= vehicle.vahicle_number %></td>
             <td><%= vehicle.drivers.last.name rescue nil %></td>
-          <% end %>
-        </tr>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
