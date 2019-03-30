@@ -1,3 +1,5 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <h1>Listing Vehicles</h1>
 
 <%= link_to 'New Vehicle', new_vehicle_path, :class => "btn btn-sm btn-info pull-right" %>
@@ -32,9 +34,9 @@
             <td><%= vehicle.capacity %></td>
             <td><%= vehicle.vahicle_number %></td>
             <td><%= vehicle.imageUrl %></td>
-            <td><%= select_tag "driver_ids",
+            <td><%= select_tag "vehicle_#{vehicle.id}",
             options_for_select(@drivers[vehicle.veh_class].map{|x| [x.name, x.id]}, vehicle.driver_id),
-            class: "select required form-control add-select", prompt: "Select Driver" rescue "NA"%></td>
+            class: "select required form-control add-select assign-driver", prompt: "Select Driver" rescue "NA"%></td>
             <td><%= link_to 'Show', vehicle %></td>
             <td><%= link_to 'Edit', edit_vehicle_path(vehicle), :class => "btn btn-sm btn-default"%></td>
             <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger" %></td>
@@ -48,3 +50,33 @@
 <% end %>
 
 <br>
+
+<script type="text/javascript">
+  $('.assign-driver').on('change', function() {
+    var d_assign_path = "<%= assign_driver_vehicles_path %>"
+    var v_id = $(this).attr("id").split("_")[1];
+    var d_id = $(".assign-driver option:selected").val();
+    get_data(d_assign_path, { d_id: d_id, v_id: v_id }, function(data){
+      if(data.message.notice != null) {
+        alert("Driver Assigned Successfully");
+        location.reload();
+      } else {
+        alert("Error in Assignment");
+      }
+    });
+  });
+
+  function get_data(url, data, callback, data_type){
+    return $.ajax({
+      url: url,
+      dataType: data_type || "json",
+      data: data,
+      success: function( data ) {
+        callback(data);
+      },
+      error: function(data){
+        callback(data);
+      }
+    });
+  }
+</script>

@@ -27,7 +27,7 @@
 
 <p>
   <strong>Vehicle:</strong>
-  <%= @driver.vehicle_id %>
+  <%= @driver.vehicles.first.make %>
 </p>
 
 <%= link_to 'Edit', edit_driver_path(@driver) %> |

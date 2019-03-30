@@ -6,7 +6,7 @@
   <%= link_to "Vehicles", vehicles_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %><br><br>
 </span>
 <%= link_to "Assign Drivers", vehicles_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %><br><br>
-<%= link_to "Assigned History", assign_driver_vehicles_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<%= link_to "Assigned History", assigned_driver_history_vehicles_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
 
 <!DOCTYPE html>
 <html>
@@ -39,7 +39,7 @@
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5rGFlnbgmeYl4tukCZI1QVscMeuU8NMI&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5rGFlnbgmeYl4tukCZI1QVscMeuU8NMI&callback=initMap&region=IN"
     async defer></script>
   </body>
 </html>

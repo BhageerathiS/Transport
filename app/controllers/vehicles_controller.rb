@@ -52,6 +52,11 @@ class VehiclesController < ApplicationController
   end
 
   def assign_driver
+    Vehicle.where(id: params[:v_id]).first.update(driver_id: params[:d_id])
+    render json: { message: { notice: "Driver Assigned Successfully" } }
+  end
+
+  def assigned_driver_history
     @vehicles = Vehicle.all
   end
 

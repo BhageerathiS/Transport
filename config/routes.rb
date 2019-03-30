@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :vehicles do
     get :assign_driver, on: :collection
+    get :assigned_driver_history, on: :collection
   end
   resources :drivers
   resources :vehicles

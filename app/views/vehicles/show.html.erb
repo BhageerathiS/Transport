@@ -42,7 +42,7 @@
 
 <p>
   <strong>Driver:</strong>
-  <%= @vehicle.driver_id %>
+  <%= @vehicle.drivers.last.try(:name) %>
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
