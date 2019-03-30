@@ -40,6 +40,8 @@ class VehiclesController < ApplicationController
     else
       render 'edit'
     end
+    veh_class = @vehicle.veh_class
+    @vehicle.drivers << Driver.where(licence_class: veh_class)
   end
 
   # DELETE /vehicles/1

@@ -39,6 +39,8 @@ class DriversController < ApplicationController
     else
       render 'edit'
     end
+    licence_class = @driver.licence_class
+    @driver.vehicles << Vehicle.where(veh_class: licence_class)
   end
 
   # DELETE /drivers/1
